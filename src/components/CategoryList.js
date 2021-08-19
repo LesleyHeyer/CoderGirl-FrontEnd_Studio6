@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import GroceryItem from "./GroceryItem";
 
 const CategoryList = props => {
-  const { categoryName } = props;
+  const { categoryName, filteredGroceryList } = props;
 
   const handleInputKeyPress = e => {
     if (e.key === "Enter") {
@@ -9,10 +10,20 @@ const CategoryList = props => {
     }
   };
 
+  let mappedGroceryList = filteredGroceryList.map( item => item )
+
   return (
     <div className="List">
       <h2>{categoryName}</h2>
-      <ul></ul>
+      <ul>
+          {
+            filteredGroceryList.map( item =>
+              <GroceryItem
+                item = {item}
+              />
+           )
+          }
+      </ul>
       <input
         type="text"
         placeholder="Add new item"
