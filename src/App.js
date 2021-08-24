@@ -6,6 +6,11 @@ import CategoryList from "./components/CategoryList";
 
 const App = () => {
 
+const  [groceryList, setGroceryList] = useState(STARTER_LIST);
+
+console.log(groceryList);
+console.log(setGroceryList);
+
   return (
     <div className="App">
       <h1>Grocery List</h1>
@@ -19,9 +24,10 @@ const App = () => {
             <CategoryList
              key={category}
              categoryName={category}
-             filteredGroceryList={STARTER_LIST.filter( itemOb => 
+             filteredGroceryList={groceryList.filter( itemOb => 
               itemOb.category === category
               )}
+              handleGroceryList={setGroceryList}
              />)
 
         }
