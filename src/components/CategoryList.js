@@ -31,6 +31,7 @@ const CategoryList = props => {
            )
           }
       </ul>
+      {filteredGroceryList.length === 0 ? <p>No Items Yet!</p> : ''}
       <input
         type="text"
         placeholder="Add new item"
